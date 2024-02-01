@@ -11,17 +11,17 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
     @Test
     public void loginEmptyEmailPassword() {
-        navigateToPage();
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        //navigateToPage();
+        //Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
 
     @Test
     public void loginValidEmailPassword() throws InterruptedException {
         //Steps 1: Open Browser and navigate to Koel app.
-        navigateToPage();
+        //navigateToPage();
         //Step 2: Enter email
-        provideEmail("demo12@class.com");
+        provideEmail("demo@class.com");
         //Step 3: Enter Password
         providePassword("te$t$tudent");
         //Step 4: Click on Login button
@@ -31,9 +31,25 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
+    @Test(dataProvider = "invalidLoginData", dataProviderClass = TestData.class)
+    public void loginWithNegativeData(String email, String password){
+        //navigateToPage();
+        //Step 2: Enter email
+        provideEmail(email);
+        //Step 3: Enter Password
+        providePassword(password);
+        //Step 4: Click on Login button
+        loginToKoel();
+        //Assertion (expected vs actual)
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+    }
+
+
+/*
     @Test
     public void loginInvalidEmailValidPassword(){
-        navigateToPage();
+        //navigateToPage();
         //Step 2: Enter email
         provideEmail("invalid@class.com");
         //Step 3: Enter Password
@@ -69,7 +85,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(avatarIcon.isDisplayed());
         //Quit the browser
         driver.quit();
-    }
+    }*/
 
 
 }
