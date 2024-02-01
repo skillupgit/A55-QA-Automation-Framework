@@ -21,7 +21,7 @@ public class LoginTests extends BaseTest {
         //Steps 1: Open Browser and navigate to Koel app.
         navigateToPage();
         //Step 2: Enter email
-        provideEmail("demo12@class.com");
+        provideEmail("demo@class.com");
         //Step 3: Enter Password
         providePassword("te$t$tudent");
         //Step 4: Click on Login button
