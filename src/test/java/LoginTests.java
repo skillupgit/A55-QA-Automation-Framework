@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,13 +22,16 @@ public class LoginTests extends BaseTest {
         //Steps 1: Open Browser and navigate to Koel app.
         //navigateToPage();
         //Step 2: Enter email
-        provideEmail("demo@class.com");
+        provideEmail("demo12@class.com");
         //Step 3: Enter Password
         providePassword("te$t$tudent");
         //Step 4: Click on Login button
         loginToKoel();
         //Assertion (expected vs actual)
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+        //WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+        //Explicit wait
+        //WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+        WebElement avatarIcon = fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
