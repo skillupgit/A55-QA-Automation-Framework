@@ -53,7 +53,7 @@ public class BaseTest {
         //Implicit Wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //Explicit Wait
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //Fluent Wait
         fluentWait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(5))

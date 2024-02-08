@@ -44,10 +44,10 @@ public class HomeTest extends BaseTest{
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         loginToKoel();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         //double click playlist
         doubleClickPlaylist();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //enter new name
         enterNewName();
         //assertion
