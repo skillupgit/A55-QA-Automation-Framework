@@ -1,3 +1,4 @@
+import jdk.jfr.Enabled;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,7 +32,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
-    @Test
+    @Test(enabled=false, description = "Marked skip due to on going issue: JIRA-9034" )
     public void loginInvalidEmailValidPassword(){
         navigateToPage();
         //Step 2: Enter email
