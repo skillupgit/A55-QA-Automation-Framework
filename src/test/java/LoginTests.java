@@ -12,8 +12,7 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
     @Test
     public void navigateToKoel() {
-
-//      Added ChromeOptions argument below to fix websocket error
+        //Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
