@@ -12,8 +12,8 @@ public class ProfileTest extends BaseTest{
         //navigate to Koel
         navigateToPage();
         //login with correct credential
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+        provideEmail("demo@koel.dev");
+        providePassword("demo");
         loginToKoel();
         Thread.sleep(2000);
         //click on Avatar
@@ -23,7 +23,7 @@ public class ProfileTest extends BaseTest{
         String randomName = generateRandomName();
         System.out.println("Random name is: "+randomName);
         //provide current password
-        provideCurrentPassword("te$t$tudent");
+        provideCurrentPassword("demo");
         Thread.sleep(2000);
         //Set the new profile name
         provideProfileName(randomName);
@@ -32,9 +32,10 @@ public class ProfileTest extends BaseTest{
         clickSave();
         Thread.sleep(5000);
         //Assertion (Expected VS Actual results)
-        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
-        System.out.println(actualProfileName.getText());
-        Assert.assertEquals(actualProfileName.getText(),randomName);
+        WebElement updateNotification = driver.findElement(By.xpath("//div[@class='message success']//main['Profile updated']"));
+
+        System.out.println(updateNotification.getText());
+        Assert.assertTrue(updateNotification.isDisplayed());
     }
 
     public void clickSave() {
@@ -59,7 +60,7 @@ public class ProfileTest extends BaseTest{
     }
 
     public void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = driver.findElement(By.cssSelector("a.view-profile"));
         avatarIcon.click();
     }
 

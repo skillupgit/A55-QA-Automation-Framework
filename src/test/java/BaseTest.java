@@ -14,23 +14,22 @@ public class BaseTest {
 
     public WebDriver driver;
 
-    public String url = "https://qa.koel.app/";
+    public String url = "https://demo.koel.dev/";
 
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
     @BeforeMethod
     public void launchBrowser(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-notifications");
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
-
     @AfterMethod
     public void closeBrowser(){
         driver.quit();
