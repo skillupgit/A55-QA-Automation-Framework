@@ -49,7 +49,7 @@ public class Homework17 extends BaseTest{
         WebElement addToBtn = driver.findElement(By.xpath("//button[text()='Add To...']"));
         addToBtn.click();
     }
-s
+
     public void selectFirstSongResult() {
         ////section[@id='songResultsWrapper']//tr[@class='song-item'][1]
         WebElement firstSong = driver.findElement(By.xpath("//div[@data-testid='song-item'][1]"));
