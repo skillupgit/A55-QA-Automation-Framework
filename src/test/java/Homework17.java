@@ -7,7 +7,7 @@ public class Homework17 extends BaseTest{
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        String expectedSongAddedSuccessMessage = "Added 1 song into \"Awesome..\"";
+        String expectedSongAddedSuccessMessage = "Added 1 song into \"skillup.\"";
         //Navigate to Koel App
         navigateToPage();
         //Login
@@ -25,7 +25,7 @@ public class Homework17 extends BaseTest{
         selectFirstSongResult();
         Thread.sleep(4000);
         //click add to button to add the song
-        clikAddToBtn();
+        clickAddToBtn();
         Thread.sleep(2000);
         //choose playlist
         choosePlaylist();
@@ -45,8 +45,9 @@ public class Homework17 extends BaseTest{
         playlist.click();
     }
 
-    public void clikAddToBtn() {
-        WebElement addToBtn = driver.findElement(By.xpath("//button[text()='Add To...']"));
+    public void clickAddToBtn() {
+        //button[text()='Add To...']
+        WebElement addToBtn = driver.findElement(By.xpath("//div[@data-testid='song-list-controls']//button[@green]"));
         addToBtn.click();
     }
 
